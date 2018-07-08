@@ -42,7 +42,7 @@ function printHeader(){
 	return true;
 }
 
-function printRow(meetingDate,agendaCode,minutesCode,description) {
+function printRow(meetingDate,agendaCode,minutesCode,agendaDir,description) {
    // display first 10 characters from meetingDate in column 1:  2011-03-15
    // because special meetings have 'sp' in meetingDate field:  2011-03-15sp
    d.write("<tr><td align=center style='line-height:18px;'>" + meetingDate.substring(0,10) + "</td>");
@@ -52,13 +52,13 @@ function printRow(meetingDate,agendaCode,minutesCode,description) {
       case 1:  d.write("<TD align=center><a href='agenda_" + meetingDate + ".html' target='_blank'>Agenda</A></TD>"); break;
       // annotated agendas(3) are always in pdf, so agenda codes 2 & 3 print the same...
       case 2:
-      case 3:  d.write("<TD align=center><a href='agenda_" + meetingDate + ".pdf' target='_blank'>Agenda</A></TD>"); break;
+      case 3:  d.write("<TD align=center><a href=" + agendaDir + "agenda_" + meetingDate + ".pdf target='_blank'>Agenda</A></TD>"); break;
    }
 
    switch(minutesCode) {
       case 0:  d.write("<TD align=center>-</TD>"); break;
-      case 1:  d.write("<TD align=center><a href='minutes_" + meetingDate + ".html' target='_blank'>Minutes</A></TD>"); break;
-      case 2:  d.write("<TD align=center><a href='minutes_" + meetingDate + ".pdf' target='_blank'>Minutes</A></TD>"); break;
+      case 1:  d.write("<TD align=center><a href=" + agendaDir + "minutes_" + meetingDate + ".html' target='_blank'>Minutes</A></TD>"); break;
+      case 2:  d.write("<TD align=center><a href=" + agendaDir + "minutes_" + meetingDate + ".pdf' target='_blank'>Minutes</A></TD>"); break;
    }
    // if description is defined, print it here, otherwise a blank cell.
    if ( description ) d.write("<TD align=left>(" + description + ")</TD>"); else d.write("<TD>&nbsp;</TD>");
