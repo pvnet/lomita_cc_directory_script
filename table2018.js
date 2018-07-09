@@ -58,7 +58,7 @@ function printRow(meetingDate,agendaCode,minutesCode,agendaDir,description) {
    switch(minutesCode) {
       case 0:  d.write("<TD align=center>-</TD>"); break;
       case 1:  d.write("<TD align=center><a href=" + agendaDir + "minutes_" + meetingDate + ".html' target='_blank'>Minutes</A></TD>"); break;
-      case 2:  d.write("<TD align=center><a href=" + agendaDir + "minutes_" + meetingDate + ".pdf' target='_blank'>Minutes</A></TD>"); break;
+      case 2:  d.write("<TD align=center><a href=" + agendaDir + "minutes_" + meetingDate + ".pdf target='_blank'>Minutes</A></TD>"); break;
    }
    // if description is defined, print it here, otherwise a blank cell.
    if ( description ) d.write("<TD align=left>(" + description + ")</TD>"); else d.write("<TD>&nbsp;</TD>");

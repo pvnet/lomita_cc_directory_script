@@ -7,7 +7,7 @@
 <title>City of Lomita - City Council Meetings</title>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <link href="../css/main_v4.css" rel="stylesheet" type="text/css">
-<script language="Javascript" type="text/javascript" src="table.js"></script>
+<script language="Javascript" type="text/javascript" src="table2018.js"></script>
 <style type="text/css">
 body,td,th {
 	font-family: Arial, Helvetica, sans-serif;
@@ -69,6 +69,9 @@ body,td,th {
 					<!--- if we've reached the end of the files in the dir, check vars to output javascript  --->
 					<cfif #hasAgenda# eq 1 and #hasMinutes# eq 1 and #hasDesc# eq 1>
 						<SCRIPT language=Javascript type=text/javascript>printRow('#dir_query.Name[i]#',2,2,'#dirName#/#dir_query.Name[i]#/','#descText#');</SCRIPT>
+					</cfif>
+					<cfif #hasAgenda# eq 1 and #hasMinutes# eq 1 and #hasDesc# eq 0>
+						<SCRIPT language=Javascript type=text/javascript>printRow('#dir_query.Name[i]#',2,2,'#dirName#/#dir_query.Name[i]#/');</SCRIPT>
 					</cfif>
 					<cfif #hasAgenda# eq 1 and #hasMinutes# eq 0 and #hasDesc# eq 1>
 						<SCRIPT language=Javascript type=text/javascript>printRow('#dir_query.Name[i]#',2,0,'#dirName#/#dir_query.Name[i]#/','#descText#');</SCRIPT>
